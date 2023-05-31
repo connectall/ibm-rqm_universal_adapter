@@ -1,0 +1,64 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "testcase": {
+        "owner": {
+          "name": "fields.owner"
+        },
+        "com.ibm.rqm.planning.editor.section.testCaseDesign": {
+          "div": "fields.testCaseDesign"
+        },
+        "state": {
+          "content": "fields.state"
+        },
+        "webId": ["id", "fields.webId"],
+        "creator": {
+          "name": "fields.creator"
+        },
+        "com.ibm.rqm.planning.editor.section.testCasePostCondition": {
+          "div": "fields.testCasePostCondition"
+        },
+        "priority": {
+          "content": "fields.priority"
+        },
+        "category": {
+          "*": {
+            "value": "fields.@(1,term)"
+          }
+        },
+        "com.ibm.rqm.planning.editor.section.testCasePreCondition": {
+          "div": "fields.testCasePreCondition"
+        },
+        "projectArea": {
+          "alias": "fields.project"
+        },
+        "*": "fields.&"
+      }
+    }
+  },
+  {
+    "operation": "shift",
+    "spec": {
+      "id": "&",
+      "fields": {
+        "Test Type": "fields.categoryTestType",
+        "Component": "fields.categoryComponent",
+        "*": "fields.&"
+      }
+    }
+  },
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "id": "=toString"
+    }
+   },
+  {
+    "operation": "shift",
+    "spec": {
+      "id": "&",
+      "fields": "&"
+    }
+  }
+]

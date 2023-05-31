@@ -1,0 +1,93 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "feed": {
+        "entry": {
+          "*": {
+            "content": {
+              "testcase": {
+                "owner": {
+                  "name": "result.[&4].fields.owner"
+                },
+                "com.ibm.rqm.planning.editor.section.testCaseDesign": {
+                  "div": "result.[&4].fields.testCaseDesign"
+                },
+                "state": {
+                  "content": "result.[&4].fields.state"
+                },
+                "webId": ["result.[&3].id", "result.[&3].fields.webId"],
+                "creator": {
+                  "name": "result.[&4].fields.creator"
+                },
+                "com.ibm.rqm.planning.editor.section.testCasePostCondition": {
+                  "div": "result.[&4].fields.testCasePostCondition"
+                },
+                "priority": {
+                  "content": "result.[&4].fields.priority"
+                },
+                "category": {
+                  "*": {
+                    "value": "result.[&5].fields.@(1,term)"
+                  }
+                },
+                "com.ibm.rqm.planning.editor.section.testCasePreCondition": {
+                  "div": "result.[&4].fields.testCasePreCondition"
+                },
+                "projectArea": {
+                  "alias": "result.[&4].fields.project"
+                },
+                "*": "result.[&3].fields.&"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "operation": "shift",
+    "spec": {
+      "result": {
+        "*": {
+          "id": "result.[&1].&",
+          "fields": {
+            "Test Type": "result.[&2].fields.categoryTestType",
+            "Component": "result.[&2].fields.categoryComponent",
+            "*": "result.[&2].fields.&"
+          }
+        }
+      }
+    }
+  },
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "result": {
+        "*": {
+          "id": "=toString"
+        }
+      },
+      "totalrecords": "=size(@(1,result))"
+    }
+  },
+  {
+    "operation": "shift",
+    "spec": {
+      "totalrecords": "&",
+      "result": {
+        "*": {
+          "id": "result.[&1].&",
+          "fields": "result.[&1].&"
+        }
+      }
+    }
+  },
+  {
+    "operation": "default",
+    "spec": {
+      "totalrecords": 0,
+      "result": []
+    }
+ }
+]
